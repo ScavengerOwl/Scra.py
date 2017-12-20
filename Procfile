@@ -1,1 +1,1 @@
-worker: python Scra.py
+worker: python bot.py
