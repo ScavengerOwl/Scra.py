@@ -38,7 +38,7 @@ async def PM(ctx, message: str):
         await Scrap.send(ctx.author, message)
 
     except (discord.Forbidden, discord.HTTPException) as e:
-        await ctx.send(f"{ctx.author.mention}, You do not have PMs open.")
+        await ctx.send(f"{ctx.author.mention}, you do not have PMs open to non-friends.")
 
 @Scrap.command()
 async def info(ctx, user: discord.Member):
