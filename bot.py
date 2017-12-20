@@ -12,6 +12,7 @@ Re-re-written by ScavengerOwl.
 """
 
 Scrap = commands.Bot(command_prefix="$")
+Scrap.remove_command('help')
 
 @Scrap.event
 async def on_ready():
