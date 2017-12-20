@@ -16,7 +16,7 @@ Scrap = commands.Bot(command_prefix="$")
 @Scrap.event
 async def on_ready():
     print(f"{Scrap.user.name} has shone once more!")
-    await Scrap.change_presence(game=discord.Game(name="$khelp"))
+    await Scrap.change_presence(game=discord.Game(name="$help"))
 
 @Scrap.command()
 @commands.has_role("Master")
