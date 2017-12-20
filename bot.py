@@ -20,7 +20,7 @@ async def on_ready():
     await Scrap.change_presence(game=discord.Game(name="$help"))
 
 @Scrap.command()
-@commands.has_role("Master")
+@commands.has_role("The LEFT hand man")
 async def ping(ctx):
     """ Pings the bot. """
     await ctx.send("***Ouch!***")
