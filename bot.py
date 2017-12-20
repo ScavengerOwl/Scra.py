@@ -68,10 +68,10 @@ async def flip(ctx):
 @Scrap.command()
 async def help(ctx):
      """ Helps users with commands """
-    await ctx.send("Every command should start with the prefix ***$***")
-    await ctx.send("```ADMIN:   ping, kick (WORK IN PROGRESS)```")
-    await ctx.send("```Fun:     cookie [@username], flip, PM [message] ```")
-    await ctx.send("```Details: info [@username] ```")
+     await ctx.send("Every command should start with the prefix ***$***")
+     await ctx.send("```ADMIN:   ping, kick (WORK IN PROGRESS)```")
+     await ctx.send("```Fun:     cookie [@username], flip, PM [message] ```")
+     await ctx.send("```Details: info [@username] ```")
 
 
 Scrap.run(os.getenv("TOKEN"))
