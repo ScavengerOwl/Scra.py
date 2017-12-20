@@ -66,7 +66,7 @@ async def flip(ctx):
     await ctx.send(embed=emb)
 
 @Scrap.command()
-async def help(self, ctx):
+async def help(ctx):
     """ Shows this message. """
     msg = await ctx.send(embed=Embed(title='Help is coming.', color=discord.Color.dark_magenta()))
     e = Embed(title='Hello there!', color=discord.Color.magenta(), description='Every command should start with the prefix ***$***')
