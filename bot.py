@@ -43,7 +43,7 @@ async def PM(ctx, message: str):
 @Scrap.command()
 async def info(ctx, user: discord.Member):
     """ Displays user's server information """
-    emb = discord.Embed(title=f"{user.name}'s profile", color=discord.Color.red())
+    emb = discord.Embed(title=f"{user.name}'s profile", color=discord.Color.dark_magenta())
     emb.add_field(name="ID:", value=f"{user.id}")
     emb.add_field(name="Status:", value=f"{user.status}")
     emb.add_field(name="Highest Role:", value=f"{user.top_role}")
@@ -66,11 +66,11 @@ async def flip(ctx):
     await ctx.send(embed=emb)
 
 @Scrap.command()
-async def help(ctx):
+async def help(ctx, self):
     """ Shows this message. """
-    msg = await ctx.send(embed=Embed(title='Help is coming.', color=discord.Color.dark_magenta()))
-    e = Embed(title='Hello there!', color=discord.Color.magenta(), description='Every command should start with the prefix ***$***')
-    for command_obj in self.bot.all_commands.values():
+    msg = await ctx.send(embed=Embed(title='Help is coming.', color=discord.Color.magenta()))
+    e = Embed(title='Hello there!', color=discord.Color.red(), description='Every command should start with the prefix ***$***')
+    for command_obj in self.Scrap.all_commands.values():
         if not command_obj.hidden:
             e.add_field(name=f'{command_obj.name.title()}', value=f'{command_obj.help}', inline=False)
         await msg.edit(embed=e)
