@@ -66,7 +66,7 @@ async def flip(ctx):
     await ctx.send(embed=emb)
 
 @Scrap.command()
- async def help(ctx):
+async def help(ctx):
      """ Helps users with commands """
     await ctx.send("Every command should start with the prefix ***$***")
     await ctx.send("```ADMIN:   ping, kick (WORK IN PROGRESS)```")
