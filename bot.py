@@ -67,14 +67,11 @@ async def flip(ctx):
 @Scrap.command()
 async def help(self, ctx):
     """ Shows this message. """
-        msg = await ctx.send(embed=Embed(title='Help is coming.', color=discord.Color.dark_magenta()))
-        e = Embed(title='Hello there!', color=discord.Color.magenta(),
-                  description='Every command should start with the prefix ***$***')
+    msg = await ctx.send(embed=Embed(title='Help is coming.', color=discord.Color.dark_magenta()))
+    e = Embed(title='Hello there!', color=discord.Color.magenta(), description='Every command should start with the prefix ***$***')
         for command_obj in self.bot.all_commands.values():
             if not command_obj.hidden:
-                e.add_field(name=f'{command_obj.name.title()}',
-                            value=f'{command_obj.help}',
-                            inline=False)
+                e.add_field(name=f'{command_obj.name.title()}', value=f'{command_obj.help}', inline=False)
         await msg.edit(embed=e)
 
 
