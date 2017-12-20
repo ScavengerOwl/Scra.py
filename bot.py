@@ -73,4 +73,4 @@ async def khelp(ctx):
     await ctx.send("```Details: info [@username] ```")
 
 
-Scrap.run(process.env.TOKEN)
+Scrap.run(TOKEN)
