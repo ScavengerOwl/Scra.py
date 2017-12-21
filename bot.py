@@ -35,9 +35,9 @@ async def cookie(ctx, user: discord.Member):
 async def PM(ctx, message: str):
     """ PM's a User. """
     try:
-        await Scrap.send(ctx.author, message)
+        await ctx.send(ctx.author, message)
 
-    except (discord.Forbidden, discord.HTTPException) as e:
+    except
         await ctx.send(f"{ctx.author.mention}, you do not have PMs open to non-friends.")
 
 @Scrap.command()
