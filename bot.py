@@ -37,7 +37,7 @@ async def PM(ctx, message: str):
     try:
         await ctx.send(ctx.author, message)
 
-    except
+    except:
         await ctx.send(f"{ctx.author.mention}, you do not have PMs open to non-friends.")
 
 @Scrap.command()
