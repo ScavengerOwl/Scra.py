@@ -8,7 +8,7 @@ import random
 SCRA.PY
 Originally written by ScavengerOwl;
 Re-written by Silver-Core;
-Re-re-written by ScavengerOwl.
+Re-re-written by ScavengerOwl
 """
 
 Scrap = commands.Bot(command_prefix="$")
@@ -18,6 +18,9 @@ Scrap.remove_command('help')
 async def on_ready():
     print(f"{Scrap.user.name} has shone once more!")
     await Scrap.change_presence(game=discord.Game(name="$help"))
+    
+@Scrap.event
+async def on_command_error()
 
 @Scrap.command()
 async def ping(ctx):
@@ -28,11 +31,14 @@ async def ping(ctx):
 @Scrap.command()
 async def cookie(ctx, user: discord.Member):
     """ Gives a user a cookie. """
-    await ctx.send(embed=discord.Embed(title="Food!", description=f"{user.name}, have a :cookie:!", color=discord.Color.dark_gold()))
+    await ctx.send(embed=discord.Embed(
+        title="Food!", description=f"{user.name}, have a :cookie:!", 
+        color=discord.Color.dark_gold()))
 
 @Scrap.command()
-async def PM(ctx, message : str):
-    await Scrap.send(ctx.author, message)
+async def PM(ctx, message: str):    
+    """ Literally Useless """
+    await ctx.author.send(message)
 
 @Scrap.command()
 async def info(ctx, user: discord.Member):
@@ -46,7 +52,7 @@ async def info(ctx, user: discord.Member):
     await ctx.send(embed=emb)
 
 
-@Scrap.command()
+@Scrap.command(hidden = True)
 async def kick(ctx, user: discord.Member):
     """ Kicks another user (WORK IN PROGRESS) """
     await ctx.send(embed=discord.Embed(title="KICKED", description=f"{user.name}, GET OUT! :boot:", color=discord.Color.green()))
@@ -58,13 +64,14 @@ async def flip(ctx):
     emb.add_field(name="You got:", value=random.choice(["**Heads**","**Tails**"]))
     await ctx.send(embed=emb)
 
-@Scrap.command()
+@Scrapy.command()
 async def help(ctx):
-     """ Helps users with commands """
-     await ctx.send("Every command should start with the prefix ***$***")
-     await ctx.send("```ADMIN:   ping, kick (WORK IN PROGRESS)```")
-     await ctx.send("```Fun:     cookie [@username], flip, PM [message] ```")
-     await ctx.send("```Details: info [@username] ```")
-
+	""" Shows this Message."""
+	msg = await ctx.send("Every command should start with the prefix ***$***")
+	desc = "<Command>\t<Description>\n"
+	for command in Scrapy.all_commands.values():
+        if not command.hidden:
+            desc += f"<{command.name}>\t<{command.help}>\n"
+	msg.edit("\n```{desc}```")
 
 Scrap.run(os.getenv("TOKEN"))
