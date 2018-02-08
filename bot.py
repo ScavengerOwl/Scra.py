@@ -18,9 +18,6 @@ Scrap.remove_command('help')
 async def on_ready():
     print(f"{Scrap.user.name} has shone once more!")
     await Scrap.change_presence(game=discord.Game(name="$help"))
-    
-@Scrap.event
-async def on_command_error()
 
 @Scrap.command()
 async def ping(ctx):
