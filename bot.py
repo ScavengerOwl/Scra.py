@@ -37,7 +37,7 @@ async def cookie(ctx, user: discord.Member):
 
 @Scrap.command()
 async def PM(ctx, message: str):    
-    """ Literally Useless """
+    """ Sends a private message. """
     await ctx.author.send(message)
 
 @Scrap.command()
@@ -60,6 +60,7 @@ async def kick(ctx, user: discord.Member):
 
 @Scrap.command()
 async def flip(ctx):
+    """ Flips a coin. """	
     emb = discord.Embed(title="*Coin flipped*", color=discord.Color.blue())
     emb.add_field(name="You got:", value=random.choice(["**Heads**","**Tails**"]))
     await ctx.send(embed=emb)
