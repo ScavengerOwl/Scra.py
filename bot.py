@@ -62,14 +62,14 @@ async def flip(ctx):
     emb.add_field(name="You got:", value=random.choice(["**Heads**","**Tails**"]))
     await ctx.send(embed=emb)
 
-@Scrapy.command()
+@Scrap.command()
 async def help(ctx):
-	""" Shows this Message."""
-	msg = await ctx.send("Every command should start with the prefix ***$***")
-	desc = "<Command>\t<Description>\n"
-	for command in Scrapy.all_commands.values():
+    """ Shows this Message."""
+    msg = await ctx.send("Every command should start with the prefix ***$***")
+    desc = "<Command>\t<Description>\n"
+    for command in Scrap.all_commands.values():
         if not command.hidden:
             desc += f"<{command.name}>\t<{command.help}>\n"
-	msg.edit("\n```{desc}```")
+    msg.edit("\n```{desc}```")
 
 Scrap.run(os.getenv("TOKEN"))
