@@ -70,6 +70,6 @@ async def help(ctx):
     for command in Scrap.all_commands.values():
         if not command.hidden:
             desc += f"<{command.name}>\t<{command.help}>\n"
-    await msg.edit(content="\n```{desc}```")
+    await msg.edit(content=f"\n```{desc}```")
 
 Scrap.run(os.getenv("TOKEN"))
