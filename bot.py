@@ -51,7 +51,7 @@ async def info(ctx, user: discord.Member):
 
 @Scrap.command(hidden = True)
 async def kick(ctx, user: discord.Member):
-    """ Kicks another user (WORK IN PROGRESS)"""
+    """ Kicks another user"""
     await ctx.send(embed=discord.Embed(title="KICKED", description=f"{user.name}, GET OUT! :boot:", color=discord.Color.green()))
     await Scrap.kick(user)
 
