@@ -29,18 +29,18 @@ async def ping(ctx):
 async def cookie(ctx, user: discord.Member):
     """ Gives a user a cookie"""
     await ctx.send(embed=discord.Embed(
-        title="Food!", description=f"{user.name}, have a :cookie:!", 
-        color=discord.Color.dark_gold()))
+        title="Food!", description=f"{user.name}, have a :cookie:!",
+        color=discord.Color.magenta()))
 
 @Scrap.command()
-async def PM(ctx, message: str):    
+async def PM(ctx, message: str):
     """ Sends a private message"""
     await ctx.author.send(message)
 
 @Scrap.command()
 async def info(ctx, user: discord.Member):
     """ Displays user's server information"""
-    emb = discord.Embed(title=f"{user.name}'s profile", color=discord.Color.dark_magenta())
+    emb = discord.Embed(title=f"{user.name}'s profile", color=discord.Color.magenta())
     emb.add_field(name="ID:", value=f"{user.id}")
     emb.add_field(name="Status:", value=f"{user.status}")
     emb.add_field(name="Highest Role:", value=f"{user.top_role}")
@@ -52,12 +52,12 @@ async def info(ctx, user: discord.Member):
 @Scrap.command(hidden = True)
 async def kick(ctx, user: discord.Member):
     """ Kicks another user"""
-    await ctx.send(embed=discord.Embed(title="KICKED", description=f"{user.name}, GET OUT! :boot:", color=discord.Color.green()))
+    await ctx.send(embed=discord.Embed(title="KICKED", description=f"{user.name}, GET OUT! :boot:", color=discord.Color.magenta()))
     await Scrap.kick(user)
 
 @Scrap.command()
 async def flip(ctx):
-    """ Flips a coin"""	
+    """ Flips a coin"""
     emb = discord.Embed(title="*Coin flipped*", color=discord.Color.blue())
     emb.add_field(name="You got:", value=random.choice(["**Heads**","**Tails**"]))
     await ctx.send(embed=emb)
@@ -65,7 +65,8 @@ async def flip(ctx):
 @Scrap.command()
 async def help(ctx):
     """ Shows this Message"""
-    await ctx.send("Every command should start with the prefix ***$***")
+    emb = discord.Embed(title="Every command should start with the prefix: ***$***", color=discord.Color.magenta())
+    await ctx.send(embed=emb)
     desc = "<Command>\t<Description>\n"
     for command in Scrap.all_commands.values():
         if not command.hidden:
