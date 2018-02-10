@@ -21,25 +21,25 @@ async def on_ready():
 
 @Scrap.command()
 async def ping(ctx):
-    """ Pings the bot. """
+    """ Pings the bot"""
     await ctx.send("***Ouch!***")
     print (f"{Scrap.user.name} has been pinged.")
 
 @Scrap.command()
 async def cookie(ctx, user: discord.Member):
-    """ Gives a user a cookie. """
+    """ Gives a user a cookie"""
     await ctx.send(embed=discord.Embed(
         title="Food!", description=f"{user.name}, have a :cookie:!", 
         color=discord.Color.dark_gold()))
 
 @Scrap.command()
 async def PM(ctx, message: str):    
-    """ Sends a private message. """
+    """ Sends a private message"""
     await ctx.author.send(message)
 
 @Scrap.command()
 async def info(ctx, user: discord.Member):
-    """ Displays user's server information """
+    """ Displays user's server information"""
     emb = discord.Embed(title=f"{user.name}'s profile", color=discord.Color.dark_magenta())
     emb.add_field(name="ID:", value=f"{user.id}")
     emb.add_field(name="Status:", value=f"{user.status}")
@@ -51,20 +51,20 @@ async def info(ctx, user: discord.Member):
 
 @Scrap.command(hidden = True)
 async def kick(ctx, user: discord.Member):
-    """ Kicks another user (WORK IN PROGRESS) """
+    """ Kicks another user (WORK IN PROGRESS)"""
     await ctx.send(embed=discord.Embed(title="KICKED", description=f"{user.name}, GET OUT! :boot:", color=discord.Color.green()))
     await Scrap.kick(user)
 
 @Scrap.command()
 async def flip(ctx):
-    """ Flips a coin. """	
+    """ Flips a coin"""	
     emb = discord.Embed(title="*Coin flipped*", color=discord.Color.blue())
     emb.add_field(name="You got:", value=random.choice(["**Heads**","**Tails**"]))
     await ctx.send(embed=emb)
 
 @Scrap.command()
 async def help(ctx):
-    """ Shows this Message."""
+    """ Shows this Message"""
     await ctx.send("Every command should start with the prefix ***$***")
     desc = "<Command>\t<Description>\n"
     for command in Scrap.all_commands.values():
