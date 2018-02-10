@@ -20,6 +20,7 @@ async def on_ready():
     await Scrap.change_presence(game=discord.Game(name="$help"))
 
 @Scrap.command()
+@commands.has_permissions(administrator=True)
 async def ping(ctx):
     """ Pings the bot"""
     await ctx.send("***Ouch!***")
@@ -50,6 +51,7 @@ async def info(ctx, user: discord.Member):
 
 
 @Scrap.command(hidden = True)
+@commands.has_permissions(administrator=True)
 async def kick(ctx, user: discord.Member):
     """ Kicks another user"""
     await ctx.send(embed=discord.Embed(title="KICKED", description=f"{user.name}, GET OUT! :boot:", color=discord.Color.magenta()))
