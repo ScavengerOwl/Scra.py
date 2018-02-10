@@ -65,11 +65,11 @@ async def flip(ctx):
 @Scrap.command()
 async def help(ctx):
     """ Shows this Message."""
-    msg = await ctx.send("Every command should start with the prefix ***$***")
+    await ctx.send("Every command should start with the prefix ***$***")
     desc = "<Command>\t<Description>\n"
     for command in Scrap.all_commands.values():
         if not command.hidden:
             desc += f"<{command.name}>\t<{command.help}>\n"
-    await msg.edit(content=f"\n```{desc}```")
+    await ctx.send(content=f"\n```{desc}```")
 
 Scrap.run(os.getenv("TOKEN"))
